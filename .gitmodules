@@ -1,0 +1,3 @@
+[submodule "StyleGuide"]
+	path = StyleGuide
+	url = https://github.com/ruffinge/StyleGuide.git
