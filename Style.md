@@ -65,6 +65,23 @@ void moveFunc(int ch1, int ch2, int ch4)
 
 ```
 
+Groups of code that logically go together should be grouped, with a blank line
+in between:
+```c
+static void main()
+{
+	printf("Hello, World!\n");
+	printf("This is a test.\n");
+	printf("I'm still testing.\n");
+
+	// Declare variables
+	char[] st = char[100];
+
+	printf("Now I want some input:\n");
+	gets(st);
+}
+```
+
 Naming
 ------
 Names of variables, functions, and macros should all be logical and easy to
