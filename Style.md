@@ -91,3 +91,43 @@ interpret. In addition, they should all comply with the following conventions:
 * Functions should always be named in `headlessCamelCase`.
 * Macros and other preprocessor definitions should always be in
   `SCREAMING_SNAKE_CASE`
+
+Braces
+------
+*The cause of many a war.*
+
+By convention in c programming, opening braces should follow the "next-line"
+(as opposed to "end-of-line") style. This means an opening brace should be
+placed on its own line.
+
+Bad (but the style I prefer):
+```c
+static void main() {
+	// Stuff
+}
+```
+
+Good:
+```c
+static void main()
+{
+	// Stuff
+}
+```
+
+Note, however, that this applies only to functions and the like. In the case of
+loops and conditionals, the "end-of-line" convention should be followed:
+
+```c
+int i, b = 0;
+
+while (something) {
+	if (somethingElse) {
+		return;
+	}
+}
+
+for (i = 0; i < 5; i++) {
+	b = !b;
+}
+```
