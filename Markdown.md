@@ -21,15 +21,5 @@ static void main()
 }
 ```
 
-That was done by putting the following in the markdown source for this page:
-``````````````````````````````
-```c
-static void main()
-{
-	printf("Hello, World!\n");
-}
-```
-``````````````````````````````
-
 A good tutorial on GitHub-Flavored Markdown is provided at the
 [GitHub website](https://help.github.com/articles/github-flavored-markdown/).
