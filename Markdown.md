@@ -30,3 +30,6 @@ static void main()
 }
 ```
 ``````````````````````````````
+
+A good tutorial on GitHub-Flavored Markdown is provided at the
+[GitHub website](https://help.github.com/articles/github-flavored-markdown/).
