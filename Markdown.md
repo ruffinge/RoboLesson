@@ -9,9 +9,9 @@ should appear well-formatted and cleanly laid out in their plain text version,
 in addition to being easily interpreted for translation to other formats (such
 as HTML, LaTeX, PDF, etc.).
 
-Github-Flavored Markdown
+GitHub-Flavored Markdown
 ------------------------
-The most common variant of Markdown is Github-Flavored Markdown (GFM), which
+The most common variant of Markdown is GitHub-Flavored Markdown (GFM), which
 adds several features to the list of recognized layouts. For example, there
 is the ability to add syntax-highlighted code blocks, like this:
 ```c
