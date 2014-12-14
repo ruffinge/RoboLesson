@@ -85,7 +85,9 @@ static void main()
 Naming
 ------
 Names of variables, functions, and macros should all be logical and easy to
-interpret. In addition, they should all comply with the following conventions:
+interpret. The should properly reflect their purpose.
+
+In addition, they should all comply with the following conventions:
 
 * Variables should always be named in `headlessCamelCase`.
 * Functions should always be named in `headlessCamelCase`.
