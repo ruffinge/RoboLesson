@@ -35,10 +35,3 @@ git clone https://github.com/ruffinge/RoboLesson.git
 ```sh
 git commit -m "Commit message." --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
-
-Version Control Using Git
--------------------------
-* [Excellent tutorial](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
-* Github for hosting
-* [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/), the
-  preferred branching workflow for this situation
