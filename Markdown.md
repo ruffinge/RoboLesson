@@ -9,6 +9,9 @@ should appear well-formatted and cleanly laid out in their plain text version,
 in addition to being easily interpreted for translation to other formats (such
 as HTML, LaTeX, PDF, etc.).
 
+Although Markdown can be interpreted from any plain-text file, it is best
+practice to use the suffix `.md`.
+
 GitHub-Flavored Markdown
 ------------------------
 The most common variant of Markdown is GitHub-Flavored Markdown (GFM), which
