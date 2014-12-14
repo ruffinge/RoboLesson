@@ -29,3 +29,17 @@ A good way to develop the `README` file is to use Markdown, a language developed
 to be easily interpreted for HTML and PDF conversion, as well as to be easily
 readable and nicely formatted in its source code. If using markdown, name the
 `README` file `README.md`. See `Markdown.md` for more information.
+
+### API Documentation ###
+The output of automatically-generated API documentation should be located
+in an easily accessible folder near the root of the project (for example, in
+a subfolder named `doc`).
+
+### Changelog ###
+It is a good idea to include a changelog, where major changes are listed by
+version number. This should be included in a file named `CHANGELOG`.
+
+License
+-------
+If using a license, be sure to include the appropriate files as required by the
+license (usually included in a file named `LICENSE`).
