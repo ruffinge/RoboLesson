@@ -35,3 +35,14 @@ git clone https://github.com/ruffinge/RoboLesson.git
 ```sh
 git commit -m "Commit message." --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
+
+Complete Examples
+-----------------
+The following two repositories show projects which I have completed. They
+demonstrate proper use of all concepts which are covered in this lesson.
+
+Chess Game (in Java): <br />
+https://bitbucket.org/eruffing/chess.git
+
+Arduino Benchmarking System (in C): <br />
+https://bitbucket.org/eruffing/arduinobenchmark.git
