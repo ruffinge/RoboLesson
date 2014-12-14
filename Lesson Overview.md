@@ -27,18 +27,6 @@ git clone https://github.com/ruffinge/RoboLesson.git
 git commit -m "Commit message." --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
 
-Proper project design
----------------------
-* Sublime text and vim
-* README files
-* Markdown
-* Structured design
-
-Style Guide Usage
------------------
-* Importance
-* Where to find it
-* Basic conventions
 
 Version Control Using Git
 -------------------------
@@ -46,17 +34,3 @@ Version Control Using Git
 * Github for hosting
 * [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/), the
 preferred branching workflow for this situation
-
-Documentation Using Doxygen
----------------------------
-* Docblock-style comments
-* Tag references
-* Style conventions
-
-Examples
---------
-* A well-done example program or two (ArduinoBenchmark and Hangman in C++)
-* Their program fixed up
-
-Self-Written Documentation Using Markdown
------------------------------------------
