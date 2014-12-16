@@ -1,4 +1,5 @@
- 
+
+
 Lesson Overview
 ===============
 By Ethan Ruffing
@@ -49,8 +50,10 @@ https://bitbucket.org/eruffing/chess.git
 
 Arduino Benchmarking System (in C): <br />
 https://bitbucket.org/eruffing/arduinobenchmark.git
- 
- 
+
+
+
+
 Basic Git Commands
 ==================
 by Ethan Ruffing
@@ -63,7 +66,7 @@ Committing
 ----------
 To make a commit:
 ```sh
-git commit -m "Commit message" --author "Ethan Ruffing <ruffinge@gmail.com>"
+git commit -m "Commit message" --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
 
 Branching
@@ -108,8 +111,10 @@ or
 ```sh
 git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 ```
- 
- 
+
+
+
+
 Gitflow
 =======
 by Ethan Ruffing
@@ -132,8 +137,10 @@ built-in support for gitflow, allowing you to use this workflow easily. It will
 take care of the steps needed to perform merges and deletions of branches,
 letting you think of the branching system at a higher level, and allowing you to
 focus more on the work of programming.
- 
- 
+
+
+
+
 Project Design
 ==============
 by Ethan Ruffing
@@ -179,8 +186,10 @@ License
 -------
 If using a license, be sure to include the appropriate files as required by the
 license (usually included in a file named `LICENSE`).
- 
- 
+
+
+
+
 Markdown
 ========
 
@@ -209,8 +218,10 @@ static void main()
 
 A good tutorial on GitHub-Flavored Markdown is provided at the
 [GitHub website](https://help.github.com/articles/github-flavored-markdown/).
- 
- 
+
+
+
+
 Commenting
 ==========
 By Ethan Ruffing
@@ -324,8 +335,10 @@ double square(double a)
 ```
 Notice also the comments within each function in the example above. These are
 essential for keeping your program understandable to others.
- 
- 
+
+
+
+
 Basic Style Conventions
 =======================
 By Ethan Ruffing
@@ -461,5 +474,7 @@ for (i = 0; i < 5; i++) {
 	b = !b;
 }
 ```
- 
- 
+
+
+
+
