@@ -10,7 +10,7 @@ Committing
 ----------
 To make a commit:
 ```sh
-git commit -m "Commit message" --author "Ethan Ruffing <ruffinge@gmail.com>"
+git commit -m "Commit message" --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
 
 Branching
