@@ -25,8 +25,8 @@ To merge another branch into the current one:
 git merge to-merge --commit -m "Merge branch 'to-merge' into current-branch"
 ```
 
-Log
----
+Logs
+----
 To display a basic log of commits:
 ```sh
 git log
