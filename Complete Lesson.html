@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Ethan Ruffing" />
+  <meta name="date" content="2014-12-16" />
+  <title>Version Control and Programming Documentation Lesson</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="css/github-pandoc.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">Version Control and Programming Documentation Lesson</h1>
+<h2 class="author">Ethan Ruffing</h2>
+<h3 class="date">December 16, 2014</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#lesson-overview">Lesson Overview</a><ul>
+<li><a href="#order-of-topics">Order of Topics</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#complete-examples">Complete Examples</a></li>
+</ul></li>
+<li><a href="#basic-git-commands">Basic Git Commands</a><ul>
+<li><a href="#committing">Committing</a></li>
+<li><a href="#branching">Branching</a></li>
+<li><a href="#logs">Logs</a></li>
+</ul></li>
+<li><a href="#gitflow">Gitflow</a></li>
+<li><a href="#project-design">Project Design</a><ul>
+<li><a href="#folders">Folders</a></li>
+<li><a href="#file-names">File Names</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#license">License</a></li>
+</ul></li>
+<li><a href="#markdown">Markdown</a><ul>
+<li><a href="#github-flavored-markdown">GitHub-Flavored Markdown</a></li>
+</ul></li>
+<li><a href="#commenting">Commenting</a><ul>
+<li><a href="#introduction-to-docblock-commenting">Introduction to Docblock Commenting</a></li>
+</ul></li>
+<li><a href="#basic-style-conventions">Basic Style Conventions</a><ul>
+<li><a href="#program-order">Program Order</a></li>
+<li><a href="#paragraphing">Paragraphing</a></li>
+<li><a href="#naming">Naming</a></li>
+<li><a href="#braces">Braces</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="lesson-overview">Lesson Overview</h1>
+<p>By Ethan Ruffing</p>
+<h2 id="order-of-topics">Order of Topics</h2>
+<ol style="list-style-type: decimal">
+<li>Getting started</li>
+<li>Git and version control</li>
+<li>Proper project design</li>
+<li>Proper documentation of programs</li>
+<li>Style guide usage</li>
+<li>A complete example</li>
+</ol>
+<h2 id="getting-started">Getting Started</h2>
+<ol style="list-style-type: decimal">
+<li>Install git from the <a href="http://git-scm.com/download/mac">git-scm website</a>.</li>
+<li>Install SourceTree from <a href="http://www.sourcetreeapp.com/">its website</a>.</li>
+<li>Create account on <a href="https://github.com/">GitHub</a> or <a href="https://bitbucket.org/">Bitbucket</a>. (We will discuss the pros/cons of each hosting service.)</li>
+<li><p>Create folder for local repositories and move into it:</p>
+<pre class="sh"><code>mkdir git
+cd git</code></pre></li>
+<li><p>Clone this lesson repository:</p>
+<pre class="sh"><code>git clone https://github.com/ruffinge/RoboLesson.git</code></pre></li>
+<li>Open this file.</li>
+<li><p>Begin working through tutorial <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository">here</a>.</p>
+<ul>
+<li><p>Note that you should not set a global <code>user.name</code> or <code>user.email</code> because of the shared nature of your account on the computer. Instead, when when committing, do the following:</p>
+<pre class="sh"><code>git commit -m &quot;Commit message.&quot; --author=&quot;Ethan Ruffing &lt;ruffinge@gmail.com&gt;&quot;</code></pre></li>
+</ul></li>
+</ol>
+<h2 id="complete-examples">Complete Examples</h2>
+<p>The following two repositories show projects which I have completed. They demonstrate proper use of all concepts which are covered in this lesson.</p>
+<p>Chess Game (in Java): <br /> https://bitbucket.org/eruffing/chess.git</p>
+<p>Arduino Benchmarking System (in C): <br /> https://bitbucket.org/eruffing/arduinobenchmark.git</p>
+<h1 id="basic-git-commands">Basic Git Commands</h1>
+<p>by Ethan Ruffing</p>
+<p>This page is meant to be a <em>very</em> brief overview of some basic commands in git. You <strong>will</strong> need to use more commands than are displayed here. There are numerous suitable references available in multiple locations online.</p>
+<h2 id="committing">Committing</h2>
+<p>To make a commit:</p>
+<pre class="sh"><code>git commit -m &quot;Commit message&quot; --author &quot;Ethan Ruffing &lt;ruffinge@gmail.com&gt;&quot;</code></pre>
+<h2 id="branching">Branching</h2>
+<p>To create and checkout a new branch:</p>
+<pre class="sh"><code>git checkout -b new-branch old-branch</code></pre>
+<p>To merge another branch into the current one:</p>
+<pre class="sh"><code>git merge to-merge --commit -m &quot;Merge branch &#39;to-merge&#39; into current-branch&quot;</code></pre>
+<h2 id="logs">Logs</h2>
+<p>To display a basic log of commits:</p>
+<pre class="sh"><code>git log</code></pre>
+<p>To display a log in a graph view (to see the branching that has been used):</p>
+<pre class="sh"><code>git log --graph</code></pre>
+<p>To display a log of all commits in a graph view (to see the branching that has been used):</p>
+<pre class="sh"><code>git log --graph --all</code></pre>
+<p>To display a simple graph model of all commits (useful for viewing an overview of branching and commit history):</p>
+<pre class="sh"><code>git log --graph --all --oneline</code></pre>
+<p>or</p>
+<pre class="sh"><code>git log --graph --abbrev-commit --decorate --date=relative --format=format:&#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&#39; --all</code></pre>
+<p>or</p>
+<pre class="sh"><code>git log --graph --abbrev-commit --decorate --format=format:&#39;%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n&#39;&#39;          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)&#39; --all</code></pre>
+<h1 id="gitflow">Gitflow</h1>
+<p>by Ethan Ruffing</p>
+<p>Git flow is a workflow for branching in the Git version control system. It was originally proposed by Vincent Driessen on his blog at <a href="http://nvie.com/">nvie</a>.</p>
+<p>The original post documenting this workflow can be found <a href="http://nvie.com/posts/a-successful-git-branching-model/">here</a>, and a practical introduction <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/">is provided</a> in the <a href="https://www.atlassian.com/git/tutorials/">Atlassian tutorials</a> on using Git.</p>
+<p>Either of these are a good place to start for learning the basics of this workflow; I personally prefer the original post.</p>
+<p>It is worth noting that SourceTree, Atlassian’s version control client, has built-in support for gitflow, allowing you to use this workflow easily. It will take care of the steps needed to perform merges and deletions of branches, letting you think of the branching system at a higher level, and allowing you to focus more on the work of programming.</p>
+<h1 id="project-design">Project Design</h1>
+<p>by Ethan Ruffing</p>
+<h2 id="folders">Folders</h2>
+<ul>
+<li>All files related to a project should be placed in a folder whose name corresponds to that project.</li>
+<li>Subfolders should be used where appropriate.
+<ul>
+<li>Example: a folder for documentation, one for sources, one for binaries</li>
+</ul></li>
+</ul>
+<h2 id="file-names">File Names</h2>
+<ul>
+<li>Files should be named according to what they represent.</li>
+<li>File names should <em>never</em> start with a number (written numbers are fine, digits are not).</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<h3 id="readme-file">README File</h3>
+<p>There should be several levels of program documentation. The first should be a <code>README</code> file located in the top level folder of the project. This document should provide a brief overview of the purpose of the program, its author(s), and pertinent licensing/copyright information. It should also give a brief overview of where to look for further documentation on various aspects of the program.</p>
+<p>A good way to develop the <code>README</code> file is to use Markdown, a language developed to be easily interpreted for HTML and PDF conversion, as well as to be easily readable and nicely formatted in its source code. If using markdown, name the <code>README</code> file <code>README.md</code>. See <code>Markdown.md</code> for more information.</p>
+<h3 id="api-documentation">API Documentation</h3>
+<p>The output of automatically-generated API documentation should be located in an easily accessible folder near the root of the project (for example, in a subfolder named <code>doc</code>).</p>
+<h3 id="changelog">Changelog</h3>
+<p>It is a good idea to include a changelog, where major changes are listed by version number. This should be included in a file named <code>CHANGELOG</code>.</p>
+<h2 id="license">License</h2>
+<p>If using a license, be sure to include the appropriate files as required by the license (usually included in a file named <code>LICENSE</code>).</p>
+<h1 id="markdown">Markdown</h1>
+<p>An overview by Ethan Ruffing</p>
+<p>Markdown is designed to be a universal markup language. One of the primary goals of Markdown is that the source files should be readable as-is. That is, they should appear well-formatted and cleanly laid out in their plain text version, in addition to being easily interpreted for translation to other formats (such as HTML, LaTeX, PDF, etc.).</p>
+<p>Although Markdown can be interpreted from any plain-text file, it is best practice to use the suffix <code>.md</code>.</p>
+<h2 id="github-flavored-markdown">GitHub-Flavored Markdown</h2>
+<p>The most common variant of Markdown is GitHub-Flavored Markdown (GFM), which adds several features to the list of recognized layouts. For example, there is the ability to add syntax-highlighted code blocks, like this:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span> main()
+{
+    printf(<span class="st">&quot;Hello, World!</span><span class="ch">\n</span><span class="st">&quot;</span>);
+}</code></pre>
+<p>A good tutorial on GitHub-Flavored Markdown is provided at the <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub website</a>.</p>
+<h1 id="commenting">Commenting</h1>
+<p>By Ethan Ruffing</p>
+<p>You should have <strong>DETAILED</strong> comments <font size="5"><strong><em>EVERYWHERE!!!</em></strong></font></p>
+<p>This:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span>
+moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span class="dt">int</span> ch4)
+{
+    vexMotorSet(motBackRight,   ch1 - ch2 + ch4);
+    vexMotorSet(motFrontRight, -ch1 - ch2 + ch4);
+    vexMotorSet(motBackLeft,   -ch1 - ch2 - ch4);
+    vexMotorSet(motFrontLeft,   ch1 - ch2 - ch4);
+}
+<span class="dt">void</span>
+setDriveMotors(<span class="dt">int</span> speed)
+{
+    vexMotorSet(motBackRight,speed);
+    vexMotorSet(motFrontRight,speed);
+    vexMotorSet(motBackLeft,speed);
+    vexMotorSet(motFrontLeft,speed);
+}
+<span class="dt">void</span>  extenderControl(<span class="dt">int</span> btn5U,<span class="dt">int</span> btn5D){
+    vexMotorSet(motExtender, <span class="dv">96</span> * (btn5U - btn5D));
+}</code></pre>
+<p>IS APPALLING!</p>
+<h2 id="introduction-to-docblock-commenting">Introduction to Docblock Commenting</h2>
+<p>Docblock comments are a system used to create API documentation for functions that you write.</p>
+<p>Before each function, a “docblock” is inserted to describe its purpose and the way that it can be called and used by other functions. These blocks can be parsed by documentation generators, such as <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>, to create nicely-formatted documentation of an entire program.</p>
+<p>Each docblock should begin with a full description, using <em>complete sentences</em>. Grammatical style should follow Strunk &amp; White’s <em>The Elements of Style</em>.</p>
+<p>Descriptions of parameters and returned values need not be full sentences.</p>
+<p>See more in the style guide.</p>
+<p>Example:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="co">/**</span>
+<span class="co"> * This function moves the robot according to joystick input.</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@author</span><span class="co"> Ethan Ruffing </span><span class="kw">&lt;ruffinge</span><span class="ot">@gmail.com</span><span class="kw">&gt;</span>
+<span class="co"> * </span><span class="kw">@since</span><span class="co"> 2014-09-07</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@param[in]</span><span class="co"> </span><span class="kw">ch1</span>
+<span class="co"> *     The Vex remote joystick channel corresponding to x-axis motion</span>
+<span class="co"> * </span><span class="kw">@param[in]</span><span class="co"> </span><span class="kw">ch2</span>
+<span class="co"> *     The Vex remote joystick channel corresponding to y-axis motion</span>
+<span class="co"> * </span><span class="kw">@param[in]</span><span class="co"> </span><span class="kw">ch4</span>
+<span class="co"> *     The Vex remote joystick channel corresponding to z-axis rotation</span>
+<span class="co"> */</span>
+<span class="dt">void</span> moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span class="dt">int</span> ch4)
+{
+    vexMotorSet(motBackRight,   ch1 - ch2 + ch4);
+    vexMotorSet(motFrontRight, -ch1 - ch2 + ch4);
+    vexMotorSet(motBackLeft,   -ch1 - ch2 - ch4);
+    vexMotorSet(motFrontLeft,   ch1 - ch2 - ch4);
+}
+
+<span class="co">/**</span>
+<span class="co"> * This function sets all drive motors to a specified speed.</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@author</span><span class="co"> Ethan Ruffing </span><span class="kw">&lt;ruffinge</span><span class="ot">@gmail.com</span><span class="kw">&gt;</span>
+<span class="co"> * </span><span class="kw">@since</span><span class="co"> 2014-09-07</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@param[in]</span><span class="co"> </span><span class="kw">speed</span>
+<span class="co"> *     The speed to apply to the drive motors</span>
+<span class="co"> */</span>
+<span class="dt">void</span> setDriveMotors(<span class="dt">int</span> speed)
+{
+    vexMotorSet(motBackRight, speed);
+    vexMotorSet(motFrontRight, speed);
+    vexMotorSet(motBackLeft, speed);
+    vexMotorSet(motFrontLeft, speed);
+}
+
+<span class="co">/**</span>
+<span class="co"> * This function will calculate the square of a decimal number.</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@author</span><span class="co"> Ethan Ruffing</span>
+<span class="co"> * </span><span class="kw">@since</span><span class="co"> 2014-12-14</span>
+<span class="co"> *</span>
+<span class="co"> * </span><span class="kw">@param[in]</span><span class="co"> </span><span class="kw">a</span>
+<span class="co"> *     The number to square</span>
+<span class="co"> * </span><span class="kw">@return</span>
+<span class="co"> *     The square of the specified number</span>
+<span class="co"> */</span>
+<span class="dt">double</span> square(<span class="dt">double</span> a)
+{
+    <span class="co">// Declare variables</span>
+    <span class="dt">double</span> b;
+
+    <span class="co">// Calculate square of input value</span>
+    b = a * a;
+
+    <span class="co">// Return calculated value</span>
+    <span class="kw">return</span> b;
+}</code></pre>
+<p>Notice also the comments within each function in the example above. These are essential for keeping your program understandable to others.</p>
+<h1 id="basic-style-conventions">Basic Style Conventions</h1>
+<p>By Ethan Ruffing</p>
+<h2 id="program-order">Program Order</h2>
+<p>Your program should follow a logical order. All functions should be <em>declared</em> before the <code>main</code> function, but none should be <em>defined</em> until after the <code>main</code> function (in your case, treat the <code>vexAutonomous</code> and <code>vexOperator</code> functions as the <code>main</code> function).</p>
+<p><em>ALL</em> preprocessor statements should be at the beginning of the file, preceded <em>only</em> by the file’s header comment block.</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
+<span class="ot">#include &quot;vex.h&quot;</span>
+
+<span class="ot">#define PI 3.14159</span>
+<span class="ot">#define BACKRIGHT kVexMotor_1</span></code></pre>
+<h2 id="paragraphing">Paragraphing</h2>
+<p>There should <em>always</em> be a blank line between <em>all</em> functions:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> vexAutonomous()
+{
+    <span class="co">// Stuff</span>
+}
+
+<span class="dt">int</span> doStuff()
+{
+    <span class="co">// Stuff</span>
+}</code></pre>
+<p>There should not be a return within a function declaraction/definition line.</p>
+<p>Bad:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span>
+moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span class="dt">int</span> ch4)
+{
+    vexMotorSet(motBackRight,   ch1 - ch2 + ch4);
+    vexMotorSet(motFrontRight, -ch1 - ch2 + ch4);
+    vexMotorSet(motBackLeft,   -ch1 - ch2 - ch4);
+    vexMotorSet(motFrontLeft,   ch1 - ch2 - ch4);
+}</code></pre>
+<p>Good:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span class="dt">int</span> ch4)
+{
+    vexMotorSet(motBackRight,   ch1 - ch2 + ch4);
+    vexMotorSet(motFrontRight, -ch1 - ch2 + ch4);
+    vexMotorSet(motBackLeft,   -ch1 - ch2 - ch4);
+    vexMotorSet(motFrontLeft,   ch1 - ch2 - ch4);
+}</code></pre>
+<p>Groups of code that logically go together should be grouped, with a blank line in between:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span> main()
+{
+    printf(<span class="st">&quot;Hello, World!</span><span class="ch">\n</span><span class="st">&quot;</span>);
+    printf(<span class="st">&quot;This is a test.</span><span class="ch">\n</span><span class="st">&quot;</span>);
+    printf(<span class="st">&quot;I&#39;m still testing.</span><span class="ch">\n</span><span class="st">&quot;</span>);
+
+    <span class="co">// Declare variables</span>
+    <span class="dt">char</span>[] st = <span class="dt">char</span>[<span class="dv">100</span>];
+
+    printf(<span class="st">&quot;Now I want some input:</span><span class="ch">\n</span><span class="st">&quot;</span>);
+    gets(st);
+}</code></pre>
+<h2 id="naming">Naming</h2>
+<p>Names of variables, functions, and macros should all be logical and easy to interpret. The should properly reflect their purpose.</p>
+<p>In addition, they should all comply with the following conventions:</p>
+<ul>
+<li>Variables should always be named in <code>headlessCamelCase</code>.</li>
+<li>Functions should always be named in <code>headlessCamelCase</code>.</li>
+<li>Macros and other preprocessor definitions should always be in <code>SCREAMING_SNAKE_CASE</code></li>
+</ul>
+<h2 id="braces">Braces</h2>
+<p><em>The cause of many a war.</em></p>
+<p>By convention in c programming, opening braces should follow the “next-line” (as opposed to “end-of-line”) style. This means an opening brace should be placed on its own line.</p>
+<p>Bad (but the style I prefer):</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span> main() {
+    <span class="co">// Stuff</span>
+}</code></pre>
+<p>Good:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span> main()
+{
+    <span class="co">// Stuff</span>
+}</code></pre>
+<p>Note, however, that this applies only to functions and the like. In the case of loops and conditionals, the “end-of-line” convention should be followed:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> i, b = <span class="dv">0</span>;
+
+<span class="kw">while</span> (something) {
+    <span class="kw">if</span> (somethingElse) {
+        <span class="kw">return</span>;
+    }
+}
+
+<span class="kw">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">5</span>; i++) {
+    b = !b;
+}</code></pre>
+</body>
+</html>
