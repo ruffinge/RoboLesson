@@ -5,28 +5,28 @@ set TITLE="Version Control and Programming Documentation Lesson"
 set AUTHOR="Ethan Ruffing"
 set DATE="December 16, 2014"
 
-echo. > combined.md
-type .\"Lesson Overview.md" >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type .\"Git Commands.md" >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type Gitflow.md >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type .\"Project Design.md" >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type Markdown.md >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type Commenting.md >> combined.md
-echo. >> combined.md
-echo. >> combined.md
-type Style.md >> combined.md
-echo. >> combined.md
-echo. >> combined.md
+echo. > "Complete Lesson.md"
+type .\"Lesson Overview.md" >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type .\"Git Commands.md" >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type Gitflow.md >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type .\"Project Design.md" >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type Markdown.md >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type Commenting.md >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+type Style.md >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
+echo. >> "Complete Lesson.md"
 
-pandoc "combined.md" -s -S -o "combined.pdf" --chapters -M author=%AUTHOR% -M title=%TITLE% -M date=%DATE% --toc --toc-depth=2
-pandoc "combined.md" -s -S -o "combined.html" --chapters -M author=%AUTHOR% -M title=%TITLE% -M date=%DATE% --toc --toc-depth=2 -c css/github-pandoc.css
+pandoc "Complete Lesson.md" -s -S -o "Complete Lesson.pdf" --chapters -M author=%AUTHOR% -M title=%TITLE% -M date=%DATE% --toc --toc-depth=2
+pandoc "Complete Lesson.md" -s -S -o "Complete Lesson.html" --chapters -M author=%AUTHOR% -M title=%TITLE% -M date=%DATE% --toc --toc-depth=2 -c css/github-pandoc.css
