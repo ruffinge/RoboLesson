@@ -1,3 +1,6 @@
 [submodule "StyleGuide"]
 	path = StyleGuide
 	url = https://github.com/ruffinge/StyleGuide.git
+[submodule "css"]
+	path = css
+	url = https://gist.github.com/6714393.git

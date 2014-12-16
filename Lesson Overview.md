@@ -1,5 +1,5 @@
-A Lesson on Version Control and Programming Documentation
-=========================================================
+Lesson Overview
+===============
 By Ethan Ruffing
 
 Order of Topics
