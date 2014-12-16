@@ -15,7 +15,9 @@ Getting Started
 --------------
 1.  Install git from the [git-scm website](http://git-scm.com/download/mac).
 2.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
-3.  Create account on [GitHub](https://github.com/).
+3.  Create account on [GitHub](https://github.com/) or
+    [Bitbucket](https://bitbucket.org/). (We will discuss the pros/cons of each
+    hosting service.)
 4.  Create folder for local repositories and move into it:
 ```sh
 mkdir git
