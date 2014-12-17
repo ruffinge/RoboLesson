@@ -14,21 +14,23 @@ Order of Topics
 Getting Started
 --------------
 1.  Install git from the [git-scm website](http://git-scm.com/download/mac).
-2.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
-3.  Create account on [GitHub](https://github.com/) or
+2.  Install git-flow following
+    [these instructions](https://github.com/nvie/gitflow/wiki/Installation).
+3.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
+4.  Create account on [GitHub](https://github.com/) or
     [Bitbucket](https://bitbucket.org/). (We will discuss the pros/cons of each
     hosting service.)
-4.  Create folder for local repositories and move into it:
+5.  Create folder for local repositories and move into it:
 ```sh
 mkdir git
 cd git
 ```
-5.  Clone this lesson repository:
+6.  Clone this lesson repository:
 ```sh
 git clone https://github.com/ruffinge/RoboLesson.git
 ```
-6.  Open this file.
-7.  Begin working through tutorial
+7.  Open this file.
+8.  Begin working through tutorial
     [here](https://www.atlassian.com/git/tutorials/setting-up-a-repository).
 
     * Note that you should not set a global `user.name` or `user.email` because
