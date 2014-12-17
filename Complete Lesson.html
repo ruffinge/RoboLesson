@@ -61,6 +61,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li><a href="#commenting">Commenting</a><ul>
 <li><a href="#introduction-to-docblock-commenting">Introduction to Docblock Commenting</a></li>
+<li><a href="#generating-api-documentation">Generating API Documentation</a></li>
 </ul></li>
 <li><a href="#basic-style-conventions">Basic Style Conventions</a><ul>
 <li><a href="#program-order">Program Order</a></li>
@@ -86,6 +87,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Install git from the <a href="http://git-scm.com/download/mac">git-scm website</a>.</li>
 <li>Install git-flow following <a href="https://github.com/nvie/gitflow/wiki/Installation">these instructions</a>.</li>
 <li>Install SourceTree from <a href="http://www.sourcetreeapp.com/">its website</a>.</li>
+<li>Install doxygen by following <a href="http://www.stack.nl/~dimitri/doxygen/download.html">these instructions</a>.</li>
 <li>Create account on <a href="https://github.com/">GitHub</a> or <a href="https://bitbucket.org/">Bitbucket</a>. (We will discuss the pros/cons of each hosting service.)</li>
 <li><p>Create folder for local repositories and move into it:</p>
 <pre class="sh"><code>mkdir git
@@ -278,6 +280,10 @@ setDriveMotors(<span class="dt">int</span> speed)
     <span class="kw">return</span> b;
 }</code></pre>
 <p>Notice also the comments within each function in the example above. These are essential for keeping your program understandable to others.</p>
+<h2 id="generating-api-documentation"><a href="#generating-api-documentation">Generating API Documentation</a></h2>
+<p>To generate documentation from your docblock comments, you must first create a Doxygen configuration file for your project. Generate the default configuration file by executing <code>doxygen -g</code> in your project’s root folder.</p>
+<p>Now, edit the configuration file to suit your purposes. More information on the available options can be found at <a href="http://www.stack.nl/~dimitri/doxygen/manual/config.html">the Doxygen website</a>.</p>
+<p>Finally, to generate the documentation, simply execute <code>doxygen</code> in the root directory of your project.</p>
 <h1 id="basic-style-conventions"><a href="#basic-style-conventions">Basic Style Conventions</a></h1>
 <p>By Ethan Ruffing</p>
 <h2 id="program-order"><a href="#program-order">Program Order</a></h2>
