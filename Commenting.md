@@ -111,3 +111,17 @@ double square(double a)
 ```
 Notice also the comments within each function in the example above. These are
 essential for keeping your program understandable to others.
+
+Generating API Documentation
+----------------------------
+To generate documentation from your docblock comments, you must first create a
+Doxygen configuration file for your project. Generate the default configuration
+file by executing `doxygen -g` in your project's root folder.
+
+Now, edit the configuration file to suit your purposes. More information on the
+available options can be found at 
+[the Doxygen website](http://www.stack.nl/~dimitri/doxygen/manual/config.html).
+
+Finally, to generate the documentation, simply execute `doxygen` in the root
+directory of your project.
+

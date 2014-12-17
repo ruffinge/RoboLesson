@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+## 1.2.0 ##
+* Added instructions for installing Doxygen
+* Added instructions for using Doxygen
+
 ## 1.1.0 ##
 * Added instructions for installing gitflow
 * Added page on submodules
