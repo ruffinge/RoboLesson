@@ -17,20 +17,22 @@ Getting Started
 2.  Install git-flow following
     [these instructions](https://github.com/nvie/gitflow/wiki/Installation).
 3.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
-4.  Create account on [GitHub](https://github.com/) or
+4.  Install doxygen by following
+    [these instructions](http://www.stack.nl/~dimitri/doxygen/download.html).
+5.  Create account on [GitHub](https://github.com/) or
     [Bitbucket](https://bitbucket.org/). (We will discuss the pros/cons of each
     hosting service.)
-5.  Create folder for local repositories and move into it:
+6.  Create folder for local repositories and move into it:
 ```sh
 mkdir git
 cd git
 ```
-6.  Clone this lesson repository:
+7.  Clone this lesson repository:
 ```sh
 git clone https://github.com/ruffinge/RoboLesson.git
 ```
-7.  Open this file.
-8.  Begin working through tutorial
+8.  Open this file.
+9.  Begin working through tutorial
     [here](https://www.atlassian.com/git/tutorials/setting-up-a-repository).
 
     * Note that you should not set a global `user.name` or `user.email` because
