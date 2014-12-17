@@ -14,6 +14,9 @@ echo "\n" >> "Complete Lesson.md"
 cat ./"Git Commands.md" >> "Complete Lesson.md"
 echo "\n" >> "Complete Lesson.md"
 echo "\n" >> "Complete Lesson.md"
+cat Submodules.md >> "Complete Lesson.md"
+echo "\n" >> "Complete Lesson.md"
+echo "\n" >> "Complete Lesson.md"
 cat Gitflow.md >> "Complete Lesson.md"
 echo "\n" >> "Complete Lesson.md"
 echo "\n" >> "Complete Lesson.md"
@@ -32,3 +35,4 @@ echo "\n" >> "Complete Lesson.md"
 
 pandoc "Complete Lesson.md" -s -S -o "Complete Lesson.pdf" --chapters -M author="$AUTHOR" -M title="$TITLE" -M date="$DATE" --toc --toc-depth=2
 pandoc "Complete Lesson.md" -s -S -o "Complete Lesson.html" --chapters -M author="$AUTHOR" -M title="$TITLE" -M date="$DATE" --toc --toc-depth=2 -c css/github-pandoc.css
+
