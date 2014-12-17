@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+## 1.2.1 ##
+* Added instructions in README.md on where to begin
+* Added instructions to updated submodules after pulling repository
+
 ## 1.2.0 ##
 * Added instructions for installing Doxygen
 * Added instructions for using Doxygen
