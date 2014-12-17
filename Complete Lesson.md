@@ -33,8 +33,12 @@ cd git
 ```sh
 git clone https://github.com/ruffinge/RoboLesson.git
 ```
-8.  Open this file.
-9.  Begin working through tutorial
+8.  Update this lesson repository's submodules:
+```sh
+git submodule update --init --recursive
+```
+9.  Open this file.
+10. Begin working through tutorial
     [here](https://www.atlassian.com/git/tutorials/setting-up-a-repository).
 
     * Note that you should not set a global `user.name` or `user.email` because
