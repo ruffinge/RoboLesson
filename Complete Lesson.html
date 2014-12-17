@@ -44,9 +44,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li><a href="#basic-git-commands">Basic Git Commands</a><ul>
 <li><a href="#committing">Committing</a></li>
+<li><a href="#pushing-and-pulling">Pushing and Pulling</a></li>
 <li><a href="#branching">Branching</a></li>
 <li><a href="#logs">Logs</a></li>
 </ul></li>
+<li><a href="#git-submodules">Git Submodules</a></li>
 <li><a href="#gitflow">Gitflow</a></li>
 <li><a href="#project-design">Project Design</a><ul>
 <li><a href="#folders">Folders</a></li>
@@ -68,9 +70,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 </ul>
 </div>
-<h1 id="lesson-overview">Lesson Overview</h1>
+<h1 id="lesson-overview"><a href="#lesson-overview">Lesson Overview</a></h1>
 <p>By Ethan Ruffing</p>
-<h2 id="order-of-topics">Order of Topics</h2>
+<h2 id="order-of-topics"><a href="#order-of-topics">Order of Topics</a></h2>
 <ol style="list-style-type: decimal">
 <li>Getting started</li>
 <li>Git and version control</li>
@@ -79,9 +81,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Style guide usage</li>
 <li>A complete example</li>
 </ol>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="getting-started"><a href="#getting-started">Getting Started</a></h2>
 <ol style="list-style-type: decimal">
 <li>Install git from the <a href="http://git-scm.com/download/mac">git-scm website</a>.</li>
+<li>Install git-flow following <a href="https://github.com/nvie/gitflow/wiki/Installation">these instructions</a>.</li>
 <li>Install SourceTree from <a href="http://www.sourcetreeapp.com/">its website</a>.</li>
 <li>Create account on <a href="https://github.com/">GitHub</a> or <a href="https://bitbucket.org/">Bitbucket</a>. (We will discuss the pros/cons of each hosting service.)</li>
 <li><p>Create folder for local repositories and move into it:</p>
@@ -96,22 +99,31 @@ cd git</code></pre></li>
 <pre class="sh"><code>git commit -m &quot;Commit message.&quot; --author=&quot;Ethan Ruffing &lt;ruffinge@gmail.com&gt;&quot;</code></pre></li>
 </ul></li>
 </ol>
-<h2 id="complete-examples">Complete Examples</h2>
+<h2 id="complete-examples"><a href="#complete-examples">Complete Examples</a></h2>
 <p>The following two repositories show projects which I have completed. They demonstrate proper use of all concepts which are covered in this lesson.</p>
 <p>Chess Game (in Java): <br /> https://bitbucket.org/eruffing/chess.git</p>
 <p>Arduino Benchmarking System (in C): <br /> https://bitbucket.org/eruffing/arduinobenchmark.git</p>
-<h1 id="basic-git-commands">Basic Git Commands</h1>
+<h1 id="basic-git-commands"><a href="#basic-git-commands">Basic Git Commands</a></h1>
 <p>by Ethan Ruffing</p>
 <p>This page is meant to be a <em>very</em> brief overview of some basic commands in git. You <strong>will</strong> need to use more commands than are displayed here. There are numerous suitable references available in multiple locations online.</p>
-<h2 id="committing">Committing</h2>
+<h2 id="committing"><a href="#committing">Committing</a></h2>
 <p>To make a commit:</p>
 <pre class="sh"><code>git commit -m &quot;Commit message&quot; --author=&quot;Ethan Ruffing &lt;ruffinge@gmail.com&gt;&quot;</code></pre>
-<h2 id="branching">Branching</h2>
+<h2 id="pushing-and-pulling"><a href="#pushing-and-pulling">Pushing and Pulling</a></h2>
+<p>You must explicitly state when you want to push changes to the host. The main host for a repository is known as <code>origin</code>. It is best to only keep your <code>develop</code> and <code>master</code> branches on <code>origin</code>, and keep <code>feature</code> and <code>release</code> branches stored locally from the time they are created to the time they are deleted.</p>
+<p>To push your changes to the host:</p>
+<pre class="sh"><code>git push origin [branch-name]</code></pre>
+<p>To pull changes from the host:</p>
+<pre class="sh"><code>git pull origin [branch-name]</code></pre>
+<p>(Note that this will pull the changes into whatever branch you are currently on, so be sure you switch to the appropriate branch before pulling.)</p>
+<h2 id="branching"><a href="#branching">Branching</a></h2>
 <p>To create and checkout a new branch:</p>
 <pre class="sh"><code>git checkout -b new-branch old-branch</code></pre>
 <p>To merge another branch into the current one:</p>
 <pre class="sh"><code>git merge to-merge --commit -m &quot;Merge branch &#39;to-merge&#39; into current-branch&quot;</code></pre>
-<h2 id="logs">Logs</h2>
+<p>To delete a (local) branch:</p>
+<pre class="sh"><code>git branch -D [branch-name]</code></pre>
+<h2 id="logs"><a href="#logs">Logs</a></h2>
 <p>To display a basic log of commits:</p>
 <pre class="sh"><code>git log</code></pre>
 <p>To display a log in a graph view (to see the branching that has been used):</p>
@@ -124,15 +136,23 @@ cd git</code></pre></li>
 <pre class="sh"><code>git log --graph --abbrev-commit --decorate --date=relative --format=format:&#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&#39; --all</code></pre>
 <p>or</p>
 <pre class="sh"><code>git log --graph --abbrev-commit --decorate --format=format:&#39;%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n&#39;&#39;          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)&#39; --all</code></pre>
-<h1 id="gitflow">Gitflow</h1>
+<h1 id="git-submodules"><a href="#git-submodules">Git Submodules</a></h1>
+<p>by Ethan Ruffing</p>
+<p>Git uses submodules to allow you to place one git repository inside of another. This way, the inner one can still be tracking the outer one, and all submodules can be managed together.</p>
+<p>To add a git repository as a submodule to your repository, do the following:</p>
+<pre class="sh"><code>git submodule add http://url-of-repository-to-add/repo.git path/to/place/it/in</code></pre>
+<p>This will place the entire contents of the new repository in the specified path.</p>
+<p>Now, when you pull your repository to another computer, to pull in the contents of the submodule, you must run:</p>
+<pre class="sh"><code>git submodule update --init --recursive</code></pre>
+<h1 id="gitflow"><a href="#gitflow">Gitflow</a></h1>
 <p>by Ethan Ruffing</p>
 <p>Git flow is a workflow for branching in the Git version control system. It was originally proposed by Vincent Driessen on his blog at <a href="http://nvie.com/">nvie</a>.</p>
 <p>The original post documenting this workflow can be found <a href="http://nvie.com/posts/a-successful-git-branching-model/">here</a>, and a practical introduction <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/">is provided</a> in the <a href="https://www.atlassian.com/git/tutorials/">Atlassian tutorials</a> on using Git.</p>
 <p>Either of these are a good place to start for learning the basics of this workflow; I personally prefer the original post.</p>
 <p>It is worth noting that SourceTree, Atlassian’s version control client, has built-in support for gitflow, allowing you to use this workflow easily. It will take care of the steps needed to perform merges and deletions of branches, letting you think of the branching system at a higher level, and allowing you to focus more on the work of programming.</p>
-<h1 id="project-design">Project Design</h1>
+<h1 id="project-design"><a href="#project-design">Project Design</a></h1>
 <p>by Ethan Ruffing</p>
-<h2 id="folders">Folders</h2>
+<h2 id="folders"><a href="#folders">Folders</a></h2>
 <ul>
 <li>All files related to a project should be placed in a folder whose name corresponds to that project.</li>
 <li>Subfolders should be used where appropriate.
@@ -140,33 +160,33 @@ cd git</code></pre></li>
 <li>Example: a folder for documentation, one for sources, one for binaries</li>
 </ul></li>
 </ul>
-<h2 id="file-names">File Names</h2>
+<h2 id="file-names"><a href="#file-names">File Names</a></h2>
 <ul>
 <li>Files should be named according to what they represent.</li>
 <li>File names should <em>never</em> start with a number (written numbers are fine, digits are not).</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<h3 id="readme-file">README File</h3>
+<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
+<h3 id="readme-file"><a href="#readme-file">README File</a></h3>
 <p>There should be several levels of program documentation. The first should be a <code>README</code> file located in the top level folder of the project. This document should provide a brief overview of the purpose of the program, its author(s), and pertinent licensing/copyright information. It should also give a brief overview of where to look for further documentation on various aspects of the program.</p>
 <p>A good way to develop the <code>README</code> file is to use Markdown, a language developed to be easily interpreted for HTML and PDF conversion, as well as to be easily readable and nicely formatted in its source code. If using markdown, name the <code>README</code> file <code>README.md</code>. See <code>Markdown.md</code> for more information.</p>
-<h3 id="api-documentation">API Documentation</h3>
+<h3 id="api-documentation"><a href="#api-documentation">API Documentation</a></h3>
 <p>The output of automatically-generated API documentation should be located in an easily accessible folder near the root of the project (for example, in a subfolder named <code>doc</code>).</p>
-<h3 id="changelog">Changelog</h3>
+<h3 id="changelog"><a href="#changelog">Changelog</a></h3>
 <p>It is a good idea to include a changelog, where major changes are listed by version number. This should be included in a file named <code>CHANGELOG</code>.</p>
-<h2 id="license">License</h2>
+<h2 id="license"><a href="#license">License</a></h2>
 <p>If using a license, be sure to include the appropriate files as required by the license (usually included in a file named <code>LICENSE</code>).</p>
-<h1 id="markdown">Markdown</h1>
+<h1 id="markdown"><a href="#markdown">Markdown</a></h1>
 <p>An overview by Ethan Ruffing</p>
 <p>Markdown is designed to be a universal markup language. One of the primary goals of Markdown is that the source files should be readable as-is. That is, they should appear well-formatted and cleanly laid out in their plain text version, in addition to being easily interpreted for translation to other formats (such as HTML, LaTeX, PDF, etc.).</p>
 <p>Although Markdown can be interpreted from any plain-text file, it is best practice to use the suffix <code>.md</code>.</p>
-<h2 id="github-flavored-markdown">GitHub-Flavored Markdown</h2>
+<h2 id="github-flavored-markdown"><a href="#github-flavored-markdown">GitHub-Flavored Markdown</a></h2>
 <p>The most common variant of Markdown is GitHub-Flavored Markdown (GFM), which adds several features to the list of recognized layouts. For example, there is the ability to add syntax-highlighted code blocks, like this:</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="dt">static</span> <span class="dt">void</span> main()
 {
     printf(<span class="st">&quot;Hello, World!</span><span class="ch">\n</span><span class="st">&quot;</span>);
 }</code></pre>
 <p>A good tutorial on GitHub-Flavored Markdown is provided at the <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub website</a>.</p>
-<h1 id="commenting">Commenting</h1>
+<h1 id="commenting"><a href="#commenting">Commenting</a></h1>
 <p>By Ethan Ruffing</p>
 <p>You should have <strong>DETAILED</strong> comments <font size="5"><strong><em>EVERYWHERE!!!</em></strong></font></p>
 <p>This:</p>
@@ -190,7 +210,7 @@ setDriveMotors(<span class="dt">int</span> speed)
     vexMotorSet(motExtender, <span class="dv">96</span> * (btn5U - btn5D));
 }</code></pre>
 <p>IS APPALLING!</p>
-<h2 id="introduction-to-docblock-commenting">Introduction to Docblock Commenting</h2>
+<h2 id="introduction-to-docblock-commenting"><a href="#introduction-to-docblock-commenting">Introduction to Docblock Commenting</a></h2>
 <p>Docblock comments are a system used to create API documentation for functions that you write.</p>
 <p>Before each function, a “docblock” is inserted to describe its purpose and the way that it can be called and used by other functions. These blocks can be parsed by documentation generators, such as <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>, to create nicely-formatted documentation of an entire program.</p>
 <p>Each docblock should begin with a full description, using <em>complete sentences</em>. Grammatical style should follow Strunk &amp; White’s <em>The Elements of Style</em>.</p>
@@ -258,9 +278,9 @@ setDriveMotors(<span class="dt">int</span> speed)
     <span class="kw">return</span> b;
 }</code></pre>
 <p>Notice also the comments within each function in the example above. These are essential for keeping your program understandable to others.</p>
-<h1 id="basic-style-conventions">Basic Style Conventions</h1>
+<h1 id="basic-style-conventions"><a href="#basic-style-conventions">Basic Style Conventions</a></h1>
 <p>By Ethan Ruffing</p>
-<h2 id="program-order">Program Order</h2>
+<h2 id="program-order"><a href="#program-order">Program Order</a></h2>
 <p>Your program should follow a logical order. All functions should be <em>declared</em> before the <code>main</code> function, but none should be <em>defined</em> until after the <code>main</code> function (in your case, treat the <code>vexAutonomous</code> and <code>vexOperator</code> functions as the <code>main</code> function).</p>
 <p><em>ALL</em> preprocessor statements should be at the beginning of the file, preceded <em>only</em> by the file’s header comment block.</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
@@ -268,7 +288,7 @@ setDriveMotors(<span class="dt">int</span> speed)
 
 <span class="ot">#define PI 3.14159</span>
 <span class="ot">#define BACKRIGHT kVexMotor_1</span></code></pre>
-<h2 id="paragraphing">Paragraphing</h2>
+<h2 id="paragraphing"><a href="#paragraphing">Paragraphing</a></h2>
 <p>There should <em>always</em> be a blank line between <em>all</em> functions:</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> vexAutonomous()
 {
@@ -310,7 +330,7 @@ moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span
     printf(<span class="st">&quot;Now I want some input:</span><span class="ch">\n</span><span class="st">&quot;</span>);
     gets(st);
 }</code></pre>
-<h2 id="naming">Naming</h2>
+<h2 id="naming"><a href="#naming">Naming</a></h2>
 <p>Names of variables, functions, and macros should all be logical and easy to interpret. The should properly reflect their purpose.</p>
 <p>In addition, they should all comply with the following conventions:</p>
 <ul>
@@ -318,7 +338,7 @@ moveFunc(<span class="dt">int</span> ch1, <span class="dt">int</span> ch2, <span
 <li>Functions should always be named in <code>headlessCamelCase</code>.</li>
 <li>Macros and other preprocessor definitions should always be in <code>SCREAMING_SNAKE_CASE</code></li>
 </ul>
-<h2 id="braces">Braces</h2>
+<h2 id="braces"><a href="#braces">Braces</a></h2>
 <p><em>The cause of many a war.</em></p>
 <p>By convention in c programming, opening braces should follow the “next-line” (as opposed to “end-of-line”) style. This means an opening brace should be placed on its own line.</p>
 <p>Bad (but the style I prefer):</p>

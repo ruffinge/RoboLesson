@@ -16,21 +16,23 @@ Order of Topics
 Getting Started
 --------------
 1.  Install git from the [git-scm website](http://git-scm.com/download/mac).
-2.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
-3.  Create account on [GitHub](https://github.com/) or
+2.  Install git-flow following
+    [these instructions](https://github.com/nvie/gitflow/wiki/Installation).
+3.  Install SourceTree from [its website](http://www.sourcetreeapp.com/).
+4.  Create account on [GitHub](https://github.com/) or
     [Bitbucket](https://bitbucket.org/). (We will discuss the pros/cons of each
     hosting service.)
-4.  Create folder for local repositories and move into it:
+5.  Create folder for local repositories and move into it:
 ```sh
 mkdir git
 cd git
 ```
-5.  Clone this lesson repository:
+6.  Clone this lesson repository:
 ```sh
 git clone https://github.com/ruffinge/RoboLesson.git
 ```
-6.  Open this file.
-7.  Begin working through tutorial
+7.  Open this file.
+8.  Begin working through tutorial
     [here](https://www.atlassian.com/git/tutorials/setting-up-a-repository).
 
     * Note that you should not set a global `user.name` or `user.email` because
@@ -69,6 +71,26 @@ To make a commit:
 git commit -m "Commit message" --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
 
+Pushing and Pulling
+-------------------
+You must explicitly state when you want to push changes to the host. The main
+host for a repository is known as `origin`. It is best to only keep your
+`develop` and `master` branches on `origin`, and keep `feature` and `release`
+branches stored locally from the time they are created to the time they are
+deleted.
+
+To push your changes to the host:
+```sh
+git push origin [branch-name]
+```
+
+To pull changes from the host:
+```sh
+git pull origin [branch-name]
+```
+(Note that this will pull the changes into whatever branch you are currently on,
+so be sure you switch to the appropriate branch before pulling.)
+
 Branching
 ---------
 To create and checkout a new branch:
@@ -79,6 +101,11 @@ git checkout -b new-branch old-branch
 To merge another branch into the current one:
 ```sh
 git merge to-merge --commit -m "Merge branch 'to-merge' into current-branch"
+```
+
+To delete a (local) branch:
+```sh
+git branch -D [branch-name]
 ```
 
 Logs
@@ -111,6 +138,33 @@ or
 ```sh
 git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 ```
+
+
+
+
+Git Submodules
+==============
+by Ethan Ruffing
+
+Git uses submodules to allow you to place one git repository inside of another.
+This way, the inner one can still be tracking the outer one, and all submodules
+can be managed together.
+
+To add a git repository as a submodule to your repository, do the following:
+
+```sh
+git submodule add http://url-of-repository-to-add/repo.git path/to/place/it/in
+```
+
+This will place the entire contents of the new repository in the specified path.
+
+Now, when you pull your repository to another computer, to pull in the contents
+of the submodule, you must run:
+
+```sh
+git submodule update --init --recursive
+```
+
 
 
 
