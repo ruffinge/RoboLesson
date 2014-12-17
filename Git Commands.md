@@ -13,6 +13,26 @@ To make a commit:
 git commit -m "Commit message" --author="Ethan Ruffing <ruffinge@gmail.com>"
 ```
 
+Pushing and Pulling
+-------------------
+You must explicitly state when you want to push changes to the host. The main
+host for a repository is known as `origin`. It is best to only keep your
+`develop` and `master` branches on `origin`, and keep `feature` and `release`
+branches stored locally from the time they are created to the time they are
+deleted.
+
+To push your changes to the host:
+```sh
+git push origin [branch-name]
+```
+
+To pull changes from the host:
+```sh
+git pull origin [branch-name]
+```
+(Note that this will pull the changes into whatever branch you are currently on,
+so be sure you switch to the appropriate branch before pulling.)
+
 Branching
 ---------
 To create and checkout a new branch:
@@ -23,6 +43,11 @@ git checkout -b new-branch old-branch
 To merge another branch into the current one:
 ```sh
 git merge to-merge --commit -m "Merge branch 'to-merge' into current-branch"
+```
+
+To delete a (local) branch:
+```sh
+git branch -D [branch-name]
 ```
 
 Logs
