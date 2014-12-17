@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+## 1.1.0 ##
+* Added instructions for installing gitflow
+* Added page on submodules
+
 ## 1.0.1 ##
 * Fixed typo in Git Commands.md
 
